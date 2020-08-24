@@ -22,10 +22,10 @@ This project is to practice codes for "Pro WPF 4.5 in C#."
 
 ### 2-2. EightBallWindow
 #### - Special Characters and Whitespace
-##### => Less than < -> &lt;
-##### => Greater than > -> &gt;
-##### => Ampersand & < -> &amp;
-##### => Quotation mark " < -> &quot;
+##### => Less than < -> &#38;lt&#59;
+##### => Greater than > -> &#38;gt&#59;
+##### => Ampersand & -> &#38;amp&#59;
+##### => Quotation mark " -> &#38;quot&#59;
 #### - To use a class not defined in one of the WPF namespaces, just write like to the following:
 ##### => xmlns:[Prefix]="clr-namespace:[Namespace];assembly=[AssemblyName]"
 * e.g. xmlns:sys="clr-namespace:System;assembly=mscorlib"
