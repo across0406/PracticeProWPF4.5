@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticeProWPF45", "PracticeProWPF45\PracticeProWPF45.csproj", "{94494B03-CC1D-49BF-B3BA-9A4EAC629E02}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{94494B03-CC1D-49BF-B3BA-9A4EAC629E02}.Debug|x64.ActiveCfg = Debug|x64
+		{94494B03-CC1D-49BF-B3BA-9A4EAC629E02}.Debug|x64.Build.0 = Debug|x64
+		{94494B03-CC1D-49BF-B3BA-9A4EAC629E02}.Release|x64.ActiveCfg = Release|x64
+		{94494B03-CC1D-49BF-B3BA-9A4EAC629E02}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F3AF3C4C-FF3F-41DB-B5DF-C082A97E3AA2}
+	EndGlobalSection
+EndGlobal
