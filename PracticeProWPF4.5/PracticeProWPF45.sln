@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticeProWPF45", "Practic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter2XAML", "Chapter2XAML\Chapter2XAML.csproj", "{212E2DD8-DD0C-4CDC-B015-F78B8C225C25}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter3Layout", "Chapter3Layout\Chapter3Layout.csproj", "{24F34A60-B95E-46F8-8846-9F1BCC3DC373}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -19,8 +21,10 @@ Global
 		{94494B03-CC1D-49BF-B3BA-9A4EAC629E02}.Release|x64.Build.0 = Release|x64
 		{212E2DD8-DD0C-4CDC-B015-F78B8C225C25}.Debug|x64.ActiveCfg = Debug|x64
 		{212E2DD8-DD0C-4CDC-B015-F78B8C225C25}.Debug|x64.Build.0 = Debug|x64
-		{212E2DD8-DD0C-4CDC-B015-F78B8C225C25}.Release|x64.ActiveCfg = Release|Any CPU
-		{212E2DD8-DD0C-4CDC-B015-F78B8C225C25}.Release|x64.Build.0 = Release|Any CPU
+		{212E2DD8-DD0C-4CDC-B015-F78B8C225C25}.Release|x64.ActiveCfg = Release|x64
+		{24F34A60-B95E-46F8-8846-9F1BCC3DC373}.Debug|x64.ActiveCfg = Debug|x64
+		{24F34A60-B95E-46F8-8846-9F1BCC3DC373}.Debug|x64.Build.0 = Debug|x64
+		{24F34A60-B95E-46F8-8846-9F1BCC3DC373}.Release|x64.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

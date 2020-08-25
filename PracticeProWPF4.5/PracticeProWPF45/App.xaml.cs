@@ -15,15 +15,20 @@ namespace PracticeProWPF45
     {
         private void ApplicationStartup( object sender, StartupEventArgs e )
         {
-            // Test codes for Chapter 2
             Window window;
+
+            // Test codes for Chapter 2
             // window = new Chapter2XAML.InitialWindow();
             // window.Show();
             // window = new Chapter2XAML.EightBallWindow();
             // window.Show();
             // window = new Chapter2XAML.UnCompliedEightBallWindow( "../../../../Chapter2XAML/UnCompiledEightBallWindow.xaml" );
             // window.Show();
-            window = new Chapter2XAML.UnCompliedEightBallWindow();
+            // window = new Chapter2XAML.UnCompliedEightBallWindow();
+            // window.Show();
+
+            // Test codes for Chapter 3
+            window = new Chapter3Layout.SimpleStackPanel();
             window.Show();
         }
     }

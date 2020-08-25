@@ -1,0 +1,29 @@
+﻿<Window x:Class="Chapter3Layout.SimpleStackPanel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Chapter3Layout"
+        mc:Ignorable="d"
+        Title="SimpleStackPanel" Height="223" Width="354">
+    <Grid x:Name="SimpleStackWholePanel" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <CheckBox x:Name="chkStackPanelOrientation" 
+                  IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                  Content="Horizontal ( Checked ) / Vertical ( Unchecked )"/>
+
+        <StackPanel x:Name="SimpleStackPanelGrid" Grid.Row="1" 
+                    Orientation="{Binding StackPanelOrientation}">
+            <Label>A Button Stack</Label>
+            <Button>Button 1</Button>
+            <Button>Button 2</Button>
+            <Button>Button 3</Button>
+            <Button>Button 4</Button>
+        </StackPanel>
+    </Grid>
+    
+</Window>
