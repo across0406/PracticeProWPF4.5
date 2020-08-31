@@ -28,7 +28,11 @@ namespace PracticeProWPF45
             // window.Show();
 
             // Test codes for Chapter 3
-            window = new Chapter3Layout.SimpleStackPanel();
+            // window = new Chapter3Layout.SimpleStackPanel();
+            // window.Show();
+
+            // Test codes for Extra 1
+            window = new Extra1DelegateAndEvent.TransformerDelegateTest();
             window.Show();
         }
     }

@@ -18,7 +18,7 @@
 
         <StackPanel x:Name="SimpleStackPanelGrid" Grid.Row="1" 
                     Orientation="{Binding StackPanelOrientation}">
-            <Label>A Button Stack</Label>
+            <Label Margin="{Binding margin}" MaxWidth="200" MinWidth="100" >A Button Stack</Label>
             <Button>Button 1</Button>
             <Button>Button 2</Button>
             <Button>Button 3</Button>
