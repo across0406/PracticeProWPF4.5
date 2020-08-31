@@ -48,14 +48,14 @@ namespace Chapter3Layout
 
         #endregion Protected Methods
 
-        #region Constructor
+        #region Constructors
 
         public SimpleStackPanelViewModel()
         {
             IsChecked = false;
         }
 
-        #endregion Constructor
+        #endregion Constructors
 
         #region Public Properties
 

@@ -31,7 +31,7 @@ namespace Chapter2XAML
 
         #endregion Private Member Variables
 
-        #region Constructor
+        #region Constructors
 
         public UnCompliedEightBallWindow()
         {
@@ -64,7 +64,7 @@ namespace Chapter2XAML
             btnUncompiledAsk.Click += AskClick;
         }
 
-        #endregion Constructor
+        #endregion Constructors
 
         #region Public Methods
 

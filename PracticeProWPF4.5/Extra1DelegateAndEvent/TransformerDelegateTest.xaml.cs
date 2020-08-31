@@ -50,13 +50,17 @@ namespace Extra1DelegateAndEvent
         private int _transformedX;
         private IntegerCollection _paramXs;
         private IntegerCollection _transformedXs;
+        private IntegerCollection _anotherTransformedXs;
 
         #endregion Private Member Variables
 
         #region Private Methods
 
         private int Square( int x ) => x * x;
-        private int Square( SoleParameterInteger x ) => x.X * x.X;
+        // private int Square( SoleParameterInteger x ) => x.X * x.X;
+        private int Cubic( int x ) => x * x * x;
+        private int SquareFunc( int x ) => x * x + 1;
+        private int CubicFunc( int x ) => x * x * x + 1;
 
         private void OnTransformerClick( object sender, RoutedEventArgs e )
         {
@@ -80,27 +84,123 @@ namespace Extra1DelegateAndEvent
                 TransformedXs.Clear();
             }
 
-            int[] temp = new int[ values.Length ];
-
-            Parallel.For( 0, values.Length, i =>
+            if ( AnotherTransformedXs == null )
             {
-                temp[ i ] = t( values[ i ] );
-            } );
-
-            for ( int i = 0; i < values.Length; ++i )
+                AnotherTransformedXs = new IntegerCollection();
+            }
+            else
             {
-                TransformedXs.Add( new SoleParameterInteger { X = temp[ i ] } );
+                AnotherTransformedXs.Clear();
+            }
+
+            int[][] temp = new int[ t.GetInvocationList().Length ][];
+
+            for ( int i = 0; i < t.GetInvocationList().Length; ++i )
+            {
+                temp[ i ] = new int[ values.Length ];
+
+                Parallel.For( 0, values.Length, j =>
+                {
+                    var tempDelegate = t.GetInvocationList()[ i ];
+                    temp[ i ][ j ] = (int)tempDelegate.DynamicInvoke( j );
+                } );
+            }
+
+            for ( int i = 0; i < t.GetInvocationList().Length; ++i )
+            {
+                if ( i == 0 )
+                {
+                    for ( int j = 0; j < values.Length; ++j )
+                    {
+                        TransformedXs.Add( new SoleParameterInteger { X = temp[ i ][ j ] } );
+                    }
+                }
+                else if ( i == 1 )
+                {
+                    for ( int j = 0; j < values.Length; ++j )
+                    {
+                        AnotherTransformedXs.Add( new SoleParameterInteger { X = temp[ i ][ j ] } );
+                    }
+                }
+            }
+        }
+
+        private void Transform<T>( T[] values, Func<T, T> transformer ) where T : struct
+        {
+            if ( TransformedXs == null )
+            {
+                TransformedXs = new IntegerCollection();
+            }
+            else
+            {
+                TransformedXs.Clear();
+            }
+
+            if ( AnotherTransformedXs == null )
+            {
+                AnotherTransformedXs = new IntegerCollection();
+            }
+            else
+            {
+                AnotherTransformedXs.Clear();
+            }
+
+            int[][] temp = new int[ transformer.GetInvocationList().Length ][];
+
+            for ( int i = 0; i < transformer.GetInvocationList().Length; ++i )
+            {
+                temp[ i ] = new int[ values.Length ];
+
+                Parallel.For( 0, values.Length, j =>
+                {
+                    var tempDelegate = transformer.GetInvocationList()[ i ];
+                    temp[ i ][ j ] = (int)tempDelegate.DynamicInvoke( j );
+                } );
+            }
+
+            for ( int i = 0; i < transformer.GetInvocationList().Length; ++i )
+            {
+                if ( i == 0 )
+                {
+                    for ( int j = 0; j < values.Length; ++j )
+                    {
+                        TransformedXs.Add( new SoleParameterInteger { X = temp[ i ][ j ] } );
+                    }
+                }
+                else if ( i == 1 )
+                {
+                    for ( int j = 0; j < values.Length; ++j )
+                    {
+                        AnotherTransformedXs.Add( new SoleParameterInteger { X = temp[ i ][ j ] } );
+                    }
+                }
             }
         }
 
         private void OnParamXsListViewDoubleClick( object sender, MouseButtonEventArgs e )
         {
-            
+
         }
 
         private void OnTransformersClick( object sender, RoutedEventArgs e )
         {
-            Transform( ParamXs.ToArray(), new Delegates.Transformer<int>(Square) );
+            Transform( ParamXs.ToArray(), new Delegates.Transformer<int>( Square ) );
+        }
+
+        private void OnDoubleTransformersClick( object sender, RoutedEventArgs e )
+        {
+            Delegates.Transformer<int> t = new Delegates.Transformer<int>( Square );
+            t += new Delegates.Transformer<int>( Cubic );
+
+            Transform( ParamXs.ToArray(), t );
+        }
+
+        private void OnTransformersAsFuncClick( object sender, RoutedEventArgs e )
+        {
+            Delegates.Transformer<int> t = new Delegates.Transformer<int>( SquareFunc );
+            t += new Delegates.Transformer<int>( CubicFunc );
+
+            Transform( ParamXs.ToArray(), t );
         }
 
         private void OnAddXClick( object sender, RoutedEventArgs e )
@@ -110,12 +210,12 @@ namespace Extra1DelegateAndEvent
                 ParamXs = new IntegerCollection();
             }
 
-            ParamXs.Add( new SoleParameterInteger { X = 0 } );
+            ParamXs.Add( new SoleParameterInteger() );
         }
 
         #endregion Private Methods
 
-        #region Constructor
+        #region Constructors
 
         public TransformerDelegateTest()
         {
@@ -126,16 +226,17 @@ namespace Extra1DelegateAndEvent
 
             ParamXs = new IntegerCollection();
             TransformedXs = new IntegerCollection();
+            AnotherTransformedXs = new IntegerCollection();
 
-            Parallel.For( 0, 10, i =>
+            for ( int i = 0; i < 10; ++i )
             {
-                ParamXs.Add( new SoleParameterInteger { X = i } );
-            } );
+                ParamXs.Add( new SoleParameterInteger( i ) );
+            }
 
             this.DataContext = this;
         }
 
-        #endregion Constructor
+        #endregion Constructors
 
         #region Public Properties
 
@@ -175,6 +276,16 @@ namespace Extra1DelegateAndEvent
             {
                 _transformedXs = value;
                 OnPropertyChanged( "TransformedXs" );
+            }
+        }
+
+        public IntegerCollection AnotherTransformedXs
+        {
+            get => _anotherTransformedXs;
+            set
+            {
+                _anotherTransformedXs = value;
+                OnPropertyChanged( "AnotherTransformedXs" );
             }
         }
 

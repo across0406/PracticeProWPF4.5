@@ -58,6 +58,16 @@ namespace Extra1DelegateAndEvent
 
         #endregion Private Member Variables
 
+        public SoleParameterInteger()
+        {
+            X = 0;
+        }
+
+        public SoleParameterInteger( int x )
+        {
+            X = x;
+        }
+
         #region Public Properties
 
         public int X
