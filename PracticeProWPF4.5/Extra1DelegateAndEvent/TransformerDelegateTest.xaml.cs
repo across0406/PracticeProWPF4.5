@@ -256,7 +256,7 @@ namespace Extra1DelegateAndEvent
             set
             {
                 _transformedX = value;
-                OnPropertyChanged( "TransformerX" );
+                OnPropertyChanged( "TransformedX" );
             }
         }
 
