@@ -4,8 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Chapter3Layout"
+        xmlns:converters="clr-namespace:Chapter3Layout.Converters"
         mc:Ignorable="d"
-        Title="SimpleStackPanel" Height="223" Width="354">
+        Title="SimpleStackPanel" Height="223" Width="354" 
+        MinWidth="{Binding WindowMinWidth}" MinHeight="{Binding WindowMinHeight}" >
+    <Window.Resources>
+        <converters:MarginConverter x:Key="MarginConverter" />
+    </Window.Resources>
+    
     <Grid x:Name="SimpleStackWholePanel" >
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />
@@ -18,12 +24,11 @@
 
         <StackPanel x:Name="SimpleStackPanelGrid" Grid.Row="1" 
                     Orientation="{Binding StackPanelOrientation}">
-            <Label Margin="{Binding margin}" MaxWidth="200" MinWidth="100" >A Button Stack</Label>
-            <Button>Button 1</Button>
-            <Button>Button 2</Button>
-            <Button>Button 3</Button>
-            <Button>Button 4</Button>
+            <Label Margin="{Binding ControlMargin, Converter={StaticResource MarginConverter}}" MaxWidth="{Binding ControlMaxWidth}" MinWidth="{Binding ControlMinWidth}" >A Button Stack</Label>
+            <Button Margin="{Binding ControlMargin, Converter={StaticResource MarginConverter}}" MaxWidth="{Binding ControlMaxWidth}" MinWidth="{Binding ControlMinWidth}" >Button 1</Button>
+            <Button Margin="{Binding ControlMargin, Converter={StaticResource MarginConverter}}" MaxWidth="{Binding ControlMaxWidth}" MinWidth="{Binding ControlMinWidth}" >Button 2</Button>
+            <Button Margin="{Binding ControlMargin, Converter={StaticResource MarginConverter}}" MaxWidth="{Binding ControlMaxWidth}" MinWidth="{Binding ControlMinWidth}" >Button 3</Button>
+            <Button Margin="{Binding ControlMargin, Converter={StaticResource MarginConverter}}" MaxWidth="{Binding ControlMaxWidth}" MinWidth="{Binding ControlMinWidth}" >Button 4</Button>
         </StackPanel>
     </Grid>
-    
 </Window>

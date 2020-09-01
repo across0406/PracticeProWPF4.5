@@ -16,6 +16,11 @@ namespace Chapter3Layout
 
         private bool _isChecked;
         private Orientation _stackPanelOrientation;
+        private double _controlMargin;
+        private double _controlMinWidth;
+        private double _controlMaxWidth;
+        private double _windowMinWidth;
+        private double _windowMinHeight;
 
         #endregion Private Member Variables
 
@@ -53,6 +58,11 @@ namespace Chapter3Layout
         public SimpleStackPanelViewModel()
         {
             IsChecked = false;
+            ControlMargin = 5;
+            ControlMinWidth = 100;
+            ControlMaxWidth = 200;
+            WindowMinWidth = 354;
+            WindowMinHeight = 223;
         }
 
         #endregion Constructors
@@ -91,6 +101,55 @@ namespace Chapter3Layout
             {
                 _stackPanelOrientation = value;
                 OnPropertyChanged( "StackPanelOrientation" );
+            }
+        }
+
+        public double ControlMargin
+        {
+            get => _controlMargin;
+            set
+            {
+                _controlMargin = value;
+                OnPropertyChanged( "ControlMargin" );
+            }
+        }
+
+        public double ControlMinWidth
+        {
+            get => _controlMinWidth;
+            set
+            {
+                _controlMinWidth = value;
+                OnPropertyChanged( "ControlMinWidth" );
+            }
+        }
+
+        public double ControlMaxWidth
+        {
+            get => _controlMaxWidth;
+            set
+            {
+                _controlMaxWidth = value;
+                OnPropertyChanged( "ControlMaxWidth" );
+            }
+        }
+
+        public double WindowMinWidth
+        {
+            get => _windowMinWidth;
+            set
+            {
+                _windowMinWidth = value;
+                OnPropertyChanged( "WindowMinWidth" );
+            }
+        }
+        public double WindowMinHeight
+        {
+            get => _windowMinHeight;
+            set
+            {
+                _windowMinHeight = value;
+                OnPropertyChanged( "WindowMinHeight" );
             }
         }
 
