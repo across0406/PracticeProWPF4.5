@@ -32,7 +32,7 @@ namespace PracticeProWPF45
             // window.Show();
 
             // Test codes for Extra 1
-            window = new Extra1DelegateAndEvent.TransformerDelegateTest();
+            window = new Extra1DelegateAndEvent.DelegateEventTest();
             window.Show();
         }
     }

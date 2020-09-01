@@ -20,7 +20,7 @@ namespace Extra1DelegateAndEvent
     /// <summary>
     /// TransformerDelegateTest.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class TransformerDelegateTest : Window, INotifyPropertyChanged
+    public partial class DelegateEventTest : Window, INotifyPropertyChanged
     {
         #region INotifyPropertyChanged Implementation
 
@@ -51,6 +51,8 @@ namespace Extra1DelegateAndEvent
         private IntegerCollection _paramXs;
         private IntegerCollection _transformedXs;
         private IntegerCollection _anotherTransformedXs;
+        private Stock _stock;
+        private decimal _newPrice;
 
         #endregion Private Member Variables
 
@@ -213,11 +215,61 @@ namespace Extra1DelegateAndEvent
             ParamXs.Add( new SoleParameterInteger() );
         }
 
+        private void StockPriceChanged( object sender, PriceChangedEventArgs e )
+        {
+            if ( e.LastPrice == 0 )
+            {
+                if ( e.NewPrice > 0 )
+                {
+                    MessageBox.Show( "Just increase!" );
+                }
+                else if ( e.NewPrice < 0 )
+                {
+                    MessageBox.Show( "Just decrease!" );
+                }
+                // Need decimal zero equal judegement.
+                else
+                {
+                    MessageBox.Show( "Just Zero!" );
+                }
+            }
+            else if ( ( ( e.NewPrice - e.LastPrice ) / e.LastPrice ) > 0.1M )
+            {
+                MessageBox.Show( "Alert, 10% stock price increase!" );
+            }
+        }
+
+        private void StockPriceChangedNonGeneric( object sender, EventArgs e )
+        {
+            MessageBox.Show( "NewPrice is assigned!" );
+        }
+
+        private void OnPriceAssignmentClick( object sender, RoutedEventArgs e )
+        {
+            if ( _stock == null )
+            {
+                throw new Exception( "Stock object is null!" );
+            }
+
+            OldPrice = NewPrice;            
+        }
+
+        private void OnPriceAssignmentNonGenericClick( object sender, RoutedEventArgs e )
+        {
+            if ( _stock == null )
+            {
+                throw new Exception( "Stock object is null!" );
+            }
+
+            _stock.PriceNonGeneric = NewPrice;
+            OnPropertyChanged( "OldPrice" );
+        }
+
         #endregion Private Methods
 
         #region Constructors
 
-        public TransformerDelegateTest()
+        public DelegateEventTest()
         {
             InitializeComponent();
 
@@ -232,6 +284,11 @@ namespace Extra1DelegateAndEvent
             {
                 ParamXs.Add( new SoleParameterInteger( i ) );
             }
+
+            _stock = new Stock( "THPW" );
+            _stock.Price = 27.10M;
+            _stock.PriceChanged += StockPriceChanged;
+            _stock.PriceChangedNonGeneric += StockPriceChangedNonGeneric;
 
             this.DataContext = this;
         }
@@ -288,6 +345,41 @@ namespace Extra1DelegateAndEvent
                 OnPropertyChanged( "AnotherTransformedXs" );
             }
         }
+
+        public decimal OldPrice
+        {
+            get
+            {
+                if ( _stock == null )
+                {
+                    throw new Exception( "Stock object is null!" );
+                }
+
+                return _stock.Price;
+            }
+
+            set
+            {
+                if ( _stock == null )
+                {
+                    throw new Exception( "Stock object is null!" );
+                }
+
+                _stock.Price = value;
+                OnPropertyChanged( "OldPrice" );
+            }
+        }
+
+        public decimal NewPrice
+        {
+            get => _newPrice;
+            set
+            {
+                _newPrice = value;
+                OnPropertyChanged( "NewPrice" );
+            }
+        }
+
 
         #endregion Public Properties
 
