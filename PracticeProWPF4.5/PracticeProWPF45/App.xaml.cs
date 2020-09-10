@@ -15,7 +15,7 @@ namespace PracticeProWPF45
     {
         private void ApplicationStartup( object sender, StartupEventArgs e )
         {
-            Window window;
+            Window window = null;
 
             // Test codes for Chapter 2
             // window = new Chapter2XAML.InitialWindow();
@@ -28,7 +28,9 @@ namespace PracticeProWPF45
             // window.Show();
 
             // Test codes for Chapter 3
-            window = new Chapter3Layout.SimpleStackPanel();
+            // window = new Chapter3Layout.SimpleStackPanel();
+            // window = new Chapter3Layout.SimpleBorder();
+            window = new Chapter3Layout.SimpleWrapPanel();
             window.Show();
 
             // Test codes for Extra 1

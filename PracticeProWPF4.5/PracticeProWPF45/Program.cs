@@ -9,12 +9,12 @@ namespace PracticeProWPF45
 {
     public class Program : Application
     {
-        //[STAThread()]
-        //static void Main()
-        //{
-        //    Program app = new Program();
-        //    app.MainWindow = new Chapter2XAML.EightBallWindow();
-        //    app.MainWindow.Show();
-        //}
+        // [STAThread()]
+        // static void Main()
+        // {
+        //     Program app = new Program();
+        //     app.MainWindow = new Chapter2XAML.EightBallWindow();
+        //     app.MainWindow.Show();
+        // }
     }
 }

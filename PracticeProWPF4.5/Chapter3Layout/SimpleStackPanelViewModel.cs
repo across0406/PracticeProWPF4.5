@@ -74,6 +74,7 @@ namespace Chapter3Layout
             get;
             set;
         }
+
         public bool IsChecked
         {
             get => _isChecked;

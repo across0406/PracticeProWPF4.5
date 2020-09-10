@@ -66,11 +66,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="SimpleBorder.xaml.cs">
+      <DependentUpon>SimpleBorder.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SimpleStackPanel.xaml.cs">
       <DependentUpon>SimpleStackPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="SimpleStackPanelCheckBoxCommand.cs" />
     <Compile Include="SimpleStackPanelViewModel.cs" />
+    <Compile Include="SimpleWrapPanel.xaml.cs">
+      <DependentUpon>SimpleWrapPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SimpleWrapPanelViewModel.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -81,7 +88,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="SimpleBorder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SimpleStackPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SimpleWrapPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
