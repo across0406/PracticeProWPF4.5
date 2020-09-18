@@ -1,0 +1,42 @@
+﻿<Window x:Class="Extra2Threading.ThreadAsynchronousCheckWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Extra2Threading"
+        mc:Ignorable="d"
+        Title="ThreadAsynchronousCheckWindow" Height="450" Width="800">
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="X:" 
+                   VerticalAlignment="Bottom" FontSize="20" 
+                   Margin="10" Foreground="White" />
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Y:" 
+                   VerticalAlignment="Bottom" FontSize="20" 
+                   Margin="10" Foreground="White" />
+        <TextBlock Grid.Row="1" Grid.RowSpan="4" Grid.Column="0" 
+                   TextWrapping="WrapWithOverflow" Text="{Binding DataX}" 
+                   Margin="10" FontSize="20" Foreground="White" />
+        <TextBlock Grid.Row="1" Grid.RowSpan="4" Grid.Column="1" 
+                   TextWrapping="WrapWithOverflow" Text="{Binding DataY}" 
+                   Margin="10" FontSize="20" Foreground="White" />
+
+        <Button Grid.Row="0" Grid.Column="2" 
+                Content="Generate" Click="GenerateClick" 
+                Margin="10" />
+    </Grid>
+</Window>
