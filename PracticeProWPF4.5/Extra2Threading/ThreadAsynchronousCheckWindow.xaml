@@ -28,15 +28,24 @@
         <TextBlock Grid.Row="0" Grid.Column="1" Text="Y:" 
                    VerticalAlignment="Bottom" FontSize="20" 
                    Margin="10" Foreground="White" />
-        <TextBlock Grid.Row="1" Grid.RowSpan="4" Grid.Column="0" 
-                   TextWrapping="WrapWithOverflow" Text="{Binding DataX}" 
-                   Margin="10" FontSize="20" Foreground="White" />
-        <TextBlock Grid.Row="1" Grid.RowSpan="4" Grid.Column="1" 
-                   TextWrapping="WrapWithOverflow" Text="{Binding DataY}" 
-                   Margin="10" FontSize="20" Foreground="White" />
+        <ScrollViewer Grid.Row="1" Grid.RowSpan="4" 
+                      Grid.Column="0" Margin="10" 
+                      VerticalScrollBarVisibility="Auto" >
+            <TextBlock TextWrapping="WrapWithOverflow" Text="{Binding DataX}" 
+                       FontSize="20" Foreground="White" />
+        </ScrollViewer>
+        <ScrollViewer Grid.Row="1" Grid.RowSpan="4" 
+                      Grid.Column="1" Margin="10" 
+                      VerticalScrollBarVisibility="Auto" >
+            <TextBlock TextWrapping="WrapWithOverflow" Text="{Binding DataY}" 
+                       FontSize="20" Foreground="White" />
+        </ScrollViewer>
 
         <Button Grid.Row="0" Grid.Column="2" 
                 Content="Generate" Click="GenerateClick" 
                 Margin="10" />
+        <Button Grid.Row="1" Grid.Column="2" 
+                Content="{Binding FlagButtonContent}" 
+                Click="FlagButtonClick" Margin="10" />
     </Grid>
 </Window>

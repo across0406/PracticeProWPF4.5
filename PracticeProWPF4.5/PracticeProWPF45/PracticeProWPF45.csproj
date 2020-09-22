@@ -130,6 +130,10 @@
       <Project>{616013e0-02d4-4275-bf16-43e508c8bd9b}</Project>
       <Name>Extra1DelegateAndEvent</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Extra2Threading\Extra2Threading.csproj">
+      <Project>{20a08574-36f5-4905-ac33-e542143b817d}</Project>
+      <Name>Extra2Threading</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">

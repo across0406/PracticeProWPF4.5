@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Extra2Threading;
 
 namespace PracticeProWPF45
 {
@@ -30,12 +31,16 @@ namespace PracticeProWPF45
             // Test codes for Chapter 3
             // window = new Chapter3Layout.SimpleStackPanel();
             // window = new Chapter3Layout.SimpleBorder();
-            window = new Chapter3Layout.SimpleWrapPanel();
-            window.Show();
+            // window = new Chapter3Layout.SimpleWrapPanel();
+            // window.Show();
 
             // Test codes for Extra 1
             // window = new Extra1DelegateAndEvent.DelegateEventTest();
             // window.Show();
+
+            // Test codes for Extra 2
+            window = new ThreadAsynchronousCheckWindow();
+            window.Show();
         }
     }
 }

@@ -41,23 +41,55 @@ namespace Extra2Threading
         private string _dataX;
         private string _dataY;
 
+        private bool _writeXFlag;
+        private bool _writeYFlag;
+        private string _flagButtonContent;
+
+        private ManualResetEvent _writeXSignal;
+        private ManualResetEvent _writeYSignal;
+
         #endregion Private Member Methods
 
         #region Private Methods
 
         private void WriteX()
         {
-            for ( int i = 0; i < 30; ++i )
+            int i = 0;
+
+            while ( _writeXFlag && i < 20 )
             {
+                if ( i % 2 == 0 )
+                {
+                    DataX += "X Wait\n";
+                    _writeXSignal.WaitOne();
+                    DataX += "Y Set\n";
+                    _writeYSignal.Set();
+                }
+
                 DataX += i.ToString() + "\n";
+                ++i;
             }
         }
 
         private void WriteY()
         {
-            for ( int i = 0; i < 30; ++i )
+            int i = 0;
+
+            _writeYSignal.WaitOne();
+            DataY += "Y Wait\n";
+
+            while ( _writeYFlag && i < 20 )
             {
+                if ( i % 2 == 0 )
+                {
+                    DataY += "Y Wait\n";
+                    _writeYSignal.WaitOne();
+                    DataY += "X Set\n";
+                    _writeXSignal.Set();
+                }
+
                 DataY += ( i * i ).ToString() + "\n";
+                ++i;
             }
         }
 
@@ -69,6 +101,19 @@ namespace Extra2Threading
         {
             DataX = string.Empty;
             DataY = string.Empty;
+
+            _writeXThread = new Thread( new ThreadStart( WriteX ) );
+            _writeXThread.IsBackground = true;
+            _writeXSignal = new ManualResetEvent( false );
+            _writeYThread = new Thread( new ThreadStart( WriteY ) );
+            _writeYThread.IsBackground = true;
+            _writeYSignal = new ManualResetEvent( false );
+
+            _writeXFlag = false;
+            _writeYFlag = false;
+            FlagButtonContent = "Flag False";
+
+
         }
 
         #endregion Constructors
@@ -94,11 +139,54 @@ namespace Extra2Threading
             }
         }
 
+        public string FlagButtonContent
+        {
+            get => _flagButtonContent;
+            set
+            {
+                _flagButtonContent = value;
+                OnPropertyChanged( "FlagButtonContent" );
+            }
+        }
+
         #endregion Public Properties
 
         #region Public Methods
 
+        public void OnDoThreads()
+        {
+            _writeXSignal.Set();
 
+            if ( !_writeXThread.IsAlive )
+            {
+                _writeXThread = new Thread( new ThreadStart( WriteX ) );
+                _writeXThread.IsBackground = true;
+            }
+
+            if ( !_writeYThread.IsAlive )
+            {
+                _writeYThread = new Thread( new ThreadStart( WriteY ) );
+                _writeYThread.IsBackground = true;
+            }
+
+            _writeXThread.Start();
+            _writeYThread.Start();
+        }
+
+        public void OnFlagChange()
+        {
+            _writeXFlag = !_writeXFlag;
+            _writeYFlag = !_writeYFlag;
+
+            if ( _writeXFlag )
+            {
+                FlagButtonContent = "Flag True";
+            }
+            else
+            {
+                FlagButtonContent = "Flag False";
+            }
+        }
 
         #endregion Public Methods
     }

@@ -19,16 +19,34 @@ namespace Extra2Threading
     /// </summary>
     public partial class ThreadAsynchronousCheckWindow : Window
     {
+        #region Private Methods
+
+        private void GenerateClick( object sender, RoutedEventArgs e )
+        {
+            DoOperation.Invoke();
+        }
+
+        private void FlagButtonClick( object sender, RoutedEventArgs e )
+        {
+            FlagChange.Invoke();
+        }
+
+        private delegate void ThreadsOperation();
+        private ThreadsOperation DoOperation;
+        private delegate void FlagChangeOperation();
+        private FlagChangeOperation FlagChange;
+
+        #endregion Private Methods
+
         public ThreadAsynchronousCheckWindow()
         {
             InitializeComponent();
 
             this.DataContext = new ThreadTest();
+            DoOperation = ( this.DataContext as ThreadTest ).OnDoThreads;
+            FlagChange = ( this.DataContext as ThreadTest ).OnFlagChange;
         }
 
-        private void GenerateClick( object sender, RoutedEventArgs e )
-        {
-
-        }
+        
     }
 }
