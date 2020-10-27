@@ -69,6 +69,9 @@
     <Compile Include="SimpleBorder.xaml.cs">
       <DependentUpon>SimpleBorder.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SimpleSplittingGrid.xaml.cs">
+      <DependentUpon>SimpleSplittingGrid.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SimpleStackPanel.xaml.cs">
       <DependentUpon>SimpleStackPanel.xaml</DependentUpon>
     </Compile>
@@ -89,6 +92,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="SimpleBorder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SimpleSplittingGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

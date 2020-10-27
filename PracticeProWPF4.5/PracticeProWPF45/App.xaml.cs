@@ -32,15 +32,16 @@ namespace PracticeProWPF45
             // window = new Chapter3Layout.SimpleStackPanel();
             // window = new Chapter3Layout.SimpleBorder();
             // window = new Chapter3Layout.SimpleWrapPanel();
-            // window.Show();
+            window = new Chapter3Layout.SimpleSplittingGrid();
+            window.Show();
 
             // Test codes for Extra 1
             // window = new Extra1DelegateAndEvent.DelegateEventTest();
             // window.Show();
 
             // Test codes for Extra 2
-            window = new ThreadAsynchronousCheckWindow();
-            window.Show();
+            // window = new ThreadAsynchronousCheckWindow();
+            // window.Show();
         }
     }
 }
