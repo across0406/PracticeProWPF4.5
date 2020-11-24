@@ -32,7 +32,11 @@ namespace PracticeProWPF45
             // window = new Chapter3Layout.SimpleStackPanel();
             // window = new Chapter3Layout.SimpleBorder();
             // window = new Chapter3Layout.SimpleWrapPanel();
-            window = new Chapter3Layout.SimpleSplittingGrid();
+            // window = new Chapter3Layout.SimpleSplittingGrid();
+            // window.Show();
+
+            // Test codes for Chapter 6
+            window = new Chapter6Controls.SimpleExpander();
             window.Show();
 
             // Test codes for Extra 1
@@ -41,6 +45,10 @@ namespace PracticeProWPF45
 
             // Test codes for Extra 2
             // window = new ThreadAsynchronousCheckWindow();
+            // window.Show();
+
+            // Test codes for Extra 2
+            // window = new Extra3VariousViewModelDataTemplate.MainView();
             // window.Show();
         }
     }

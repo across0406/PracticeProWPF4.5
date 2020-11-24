@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extra1DelegateAndEvent", "E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extra2Threading", "Extra2Threading\Extra2Threading.csproj", "{20A08574-36F5-4905-AC33-E542143B817D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extra3VariousViewModelDataTemplate", "Extra3VariousViewModelDataTemplate\Extra3VariousViewModelDataTemplate.csproj", "{7948D27C-C872-442D-BF33-E2D8FE03649F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter6Controls", "Chapter6Controls\Chapter6Controls.csproj", "{C2873CA8-C3B6-47D9-BD73-40F4723CDB0D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +51,16 @@ Global
 		{20A08574-36F5-4905-AC33-E542143B817D}.Debug|x64.Build.0 = Debug|x64
 		{20A08574-36F5-4905-AC33-E542143B817D}.Release|Any CPU.ActiveCfg = Release|x64
 		{20A08574-36F5-4905-AC33-E542143B817D}.Release|x64.ActiveCfg = Release|x64
+		{7948D27C-C872-442D-BF33-E2D8FE03649F}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{7948D27C-C872-442D-BF33-E2D8FE03649F}.Debug|x64.ActiveCfg = Debug|x64
+		{7948D27C-C872-442D-BF33-E2D8FE03649F}.Debug|x64.Build.0 = Debug|x64
+		{7948D27C-C872-442D-BF33-E2D8FE03649F}.Release|Any CPU.ActiveCfg = Release|x64
+		{7948D27C-C872-442D-BF33-E2D8FE03649F}.Release|x64.ActiveCfg = Release|x64
+		{C2873CA8-C3B6-47D9-BD73-40F4723CDB0D}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{C2873CA8-C3B6-47D9-BD73-40F4723CDB0D}.Debug|x64.ActiveCfg = Debug|x64
+		{C2873CA8-C3B6-47D9-BD73-40F4723CDB0D}.Debug|x64.Build.0 = Debug|x64
+		{C2873CA8-C3B6-47D9-BD73-40F4723CDB0D}.Release|Any CPU.ActiveCfg = Release|x64
+		{C2873CA8-C3B6-47D9-BD73-40F4723CDB0D}.Release|x64.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
